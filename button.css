@@ -1,0 +1,45 @@
+body{
+  background: 200px 250px pink;
+  border: 5px solid black;
+  padding-bottom: 7px;
+
+}
+html, body{
+    width: 100%;
+    height: 100%
+}
+
+
+.mousepad {
+  height: 100vh;
+}
+
+.scroll {
+  height: 70%;
+}
+
+.click {
+  height: 20%;
+  width: 105.5%;
+  border: 5px solid black;
+}
+
+.vertical-divider {
+  height: 100%;
+  width: 5px;
+  background-color: black;
+}
+
+.cl, .cr{
+  text-align:center;
+  font-weight: bold;
+}
+
+.cl{
+  border-left: 1px solid black;
+  margin-left: 10px;
+}
+
+.cr{
+  border-left: 1px solid black;
+  margin-right: 0px;

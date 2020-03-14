@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="button.css"/>
+    <script src="colors.js"></script>
+    <script src="dist/html2canvas.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-12 mousepad">
+        <div class="float-top">
+          <div class="search float-left ml-2 mt-2"><i class="fas fa-search fa-3x"  style="display:block" onclick="doShow();" ></i></div>
+          <div class="camera float-right mr-2 mt-2"><i class="fa fa-camera fa-3x"></i></div>
+            <div class="search_box float-left ml-1 mt-4" style ="display:none">
+              <center>
+                <form action="http://www.google.co.kr/cse" id="cse-search-box">
+                  <div>
+                    <input type="hidden" name="cx" value="partner-pub-8905404942645908:x70add-3ud6" />
+                    <input type="hidden" name="ie" value="UTF-8" />
+                    <input type="text" name="q" size="33" />
+                    <input type="submit" name="sa" value="&#xac80;&#xc0c9;" />
+                  </div>
+                </form>
+                <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=ko"></script>
+              </center>
+            </div>
+        </div>
+        <div class="scroll"></div>
+        <div class="row click">
+          <button class="cl col">Left</button>
+          <div class="vertical-divider"></div>
+          <button class="cr col">Right</button>
+        </div>
+        <div class="float-bottom">
+          <div class="float-left mt-2">
+            <input id="night_day" type="button" value="night" onclick="nightDayHandler(this); ">
+          </div>
+          <div class="keyboard float-bottom mr-5" style="text-align:center"><i class="fas fa-keyboard fa-3x"></i></div>
+      </div>
+    </div>
+
+    <script>
+      function doShow(){
+        if($('.search_box').css("display") == "none"){
+          $('.search_box').css("display","block");
+        //  $('.search_box').show();
+        }
+        else{
+          $('.search_box').css("display","none");
+        //  $('.search_box').hide();
+        }
+        //if ($('.search').is(":visible")){
+      }
+
+      $(function(){
+            $(".camera").on("click", function(){
+              // 캡쳐 라이브러리를 통해서 canvas 오브젝트를 받고 이미지 파일로 리턴한다.
+              html2canvas(document.body).then(canvas => {
+                saveAs(canvas.toDataURL('image/png'),"캡쳐.png");
+              });
+            });
+            function saveAs(uri, filename) {
+              // 캡쳐된 파일을 이미지 파일로 내보낸다.
+              var link = document.createElement('a');
+              if (typeof link.download === 'string') {
+                link.href = uri;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              } else {
+                window.open(uri);
+              }
+            }
+          });
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/182e9b0fdf.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+
+  </body>
+</html>
